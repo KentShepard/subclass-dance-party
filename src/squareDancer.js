@@ -19,5 +19,6 @@ makeSquareDancer.prototype.step = function() {
 makeSquareDancer.prototype.resize = function() {
   this.size === 30 ? this.size = 10 : this.size = 30;
 
-  this.$node.animate({'border-width': this.size + 'px'}, 200)
+  this.$node.animate({'border-width': this.size + 'px'}, 200);
+  this.$node.css({'transform': 'rotate(360deg)'})
 };

@@ -4,8 +4,8 @@ $(document).ready(function() {
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
+     * As long as the 'data-dancer-maker-function-name' attribute of a
+     * class='addDancerButton' DOM node matches one of the names of the
      * maker functions available in the global scope, clicking that node
      * will call the function to make the dancer.
      */
@@ -23,8 +23,8 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
@@ -40,24 +40,24 @@ $(document).ready(function() {
       $(this).text('Line Up');
     } else {
       for (var i = 0; i < window.dancers.length; i++) {
-        var currentTop = i * $("body").height() / window.dancers.length + 40;
+        var currentTop = i * $('body').height() / window.dancers.length + 40;
         window.dancers[i].lineUp(currentTop, 30);
       }
       $(this).text('Scatter');
     }
   });
 
-  $('.spinButton').on('click', function(event){
+  $('.spinButton').on('click', function(event) {
 
-    var leftDancers = window.dancers.filter(function(dancer){
-      return (dancer.left < $("body").width()/2);
+    var leftDancers = window.dancers.filter(function(dancer) {
+      return (dancer.left < $('body').width() / 2);
     });
 
-    var rightDancers = window.dancers.filter(function(dancer){
-      return (dancer.left >= $("body").width()/2);
+    var rightDancers = window.dancers.filter(function(dancer) {
+      return (dancer.left >= $('body').width() / 2);
     });
 
-    window.dancers.forEach(function(dancer){
+    window.dancers.forEach(function(dancer) {
       dancer.$node.toggleClass('spinner');
     });
   });

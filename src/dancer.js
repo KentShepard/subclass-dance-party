@@ -19,7 +19,7 @@ makeDancer.prototype.setPosition = function() {
     top: this.top,
     left: this.left
   };
-  this.$node.stop(true,true).animate(styleSettings, 300);
+  this.$node.stop(true, true).animate(styleSettings, 300);
 };
 
 makeDancer.prototype.lineUp = function(lineTop, lineLeft) {
@@ -27,5 +27,5 @@ makeDancer.prototype.lineUp = function(lineTop, lineLeft) {
     top: lineTop,
     left: lineLeft,
   };
-  this.$node.stop(true,true).animate(styleSettings, 300);
+  this.$node.stop(true, true).animate(styleSettings, 300);
 };
