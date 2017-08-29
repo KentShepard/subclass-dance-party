@@ -32,11 +32,35 @@ $(document).ready(function() {
   });
 
   $('.lineUpButton').on('click', function(event) {
-    for (var i = 0; i < window.dancers.length; i++) {
-      debugger;
-      var currentTop = i * $("body").height() / window.dancers.length + 40;
-      window.dancers[i].lineUp(currentTop, 30);
+    var areLinedUp = $(this).text() === 'Scatter';
+    if (areLinedUp) {
+      for (var i = 0; i < window.dancers.length; i++) {
+        window.dancers[i].setPosition();
+      }
+      $(this).text('Line Up');
+    } else {
+      for (var i = 0; i < window.dancers.length; i++) {
+        var currentTop = i * $("body").height() / window.dancers.length + 40;
+        window.dancers[i].lineUp(currentTop, 30);
+      }
+      $(this).text('Scatter');
     }
   });
+
+  $('.spinButton').on('click', function(event){
+
+    var leftDancers = window.dancers.filter(function(dancer){
+      return (dancer.left < $("body").width()/2);
+    });
+
+    var rightDancers = window.dancers.filter(function(dancer){
+      return (dancer.left >= $("body").width()/2);
+    });
+
+    window.dancers.forEach(function(dancer){
+      dancer.$node.toggleClass('spinner');
+    });
+  });
+
 });
 

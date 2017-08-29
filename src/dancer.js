@@ -19,13 +19,13 @@ makeDancer.prototype.setPosition = function() {
     top: this.top,
     left: this.left
   };
-  this.$node.css(styleSettings);
+  this.$node.stop(true,true).animate(styleSettings, 300);
 };
 
 makeDancer.prototype.lineUp = function(lineTop, lineLeft) {
   var styleSettings = {
     top: lineTop,
-    left: lineLeft
+    left: lineLeft,
   };
-  this.$node.css(styleSettings);
+  this.$node.stop(true,true).animate(styleSettings, 300);
 };

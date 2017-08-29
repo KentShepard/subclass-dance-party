@@ -1,9 +1,9 @@
 var makeSquareDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
   this.setPosition();
-  this.shouldGrow = true;
   this.size = 10;
-  this.x = 0;
+  this.$node.addClass('squareDancer');
+
 };
 
 makeSquareDancer.prototype = Object.create(makeDancer.prototype);
@@ -17,12 +17,7 @@ makeSquareDancer.prototype.step = function() {
 };
 
 makeSquareDancer.prototype.resize = function() {
-  this.size = (Math.sin(this.x++) + 1)/2 * 50;
+  this.size === 30 ? this.size = 10 : this.size = 30;
 
-  var styleSettings = {
-    'border-color': 'orange',
-    'border-width': this.size + 'px',
-    'border-radius': 0
-  };
-  this.$node.css(styleSettings);
+  this.$node.animate({'border-width': this.size + 'px'}, 200)
 };

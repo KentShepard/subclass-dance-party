@@ -7,7 +7,7 @@ makeColorDancer.prototype = Object.create(makeBlinkyDancer.prototype);
 makeColorDancer.prototype.constructor = makeColorDancer;
 
 makeColorDancer.prototype.step = function() {
-  this.oldStep();
+  makeDancer.prototype.step.call(this);
   var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
   var pickColor = Math.floor(Math.random() * (colors.length - 1));
   var styleSettings = {
