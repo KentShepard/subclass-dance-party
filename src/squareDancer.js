@@ -17,7 +17,6 @@ makeSquareDancer.prototype.step = function() {
 };
 
 makeSquareDancer.prototype.resize = function() {
-  // body...
   this.size = (Math.sin(this.x++) + 1)/2 * 50;
 
   var styleSettings = {
@@ -26,9 +25,4 @@ makeSquareDancer.prototype.resize = function() {
     'border-radius': 0
   };
   this.$node.css(styleSettings);
-
-};
-
-makeSquareDancer.prototype.shrink = function() {
-  // body...
 };
