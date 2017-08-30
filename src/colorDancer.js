@@ -1,6 +1,7 @@
 var makeColorDancer = function(top, left, timeBetweenSteps) {
   makeBlinkyDancer.call(this, top, left, timeBetweenSteps);
   this.setPosition();
+
 };
 
 makeColorDancer.prototype = Object.create(makeBlinkyDancer.prototype);
@@ -14,5 +15,5 @@ makeColorDancer.prototype.step = function() {
     'border-color': colors[pickColor]
   };
   this.$node.css(styleSettings);
-  this.$node.toggle();
+  this.blink();
 };
