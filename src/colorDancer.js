@@ -1,19 +1,24 @@
-var makeColorDancer = function(top, left, timeBetweenSteps) {
-  makeBlinkyDancer.call(this, top, left, timeBetweenSteps);
+var ColorDancer = function(top, left, timeBetweenSteps) {
+  BlinkyDancer.call(this, top, left, timeBetweenSteps);
   this.setPosition();
 
 };
 
-makeColorDancer.prototype = Object.create(makeBlinkyDancer.prototype);
-makeColorDancer.prototype.constructor = makeColorDancer;
+ColorDancer.prototype = Object.create(BlinkyDancer.prototype);
+ColorDancer.prototype.constructor = ColorDancer;
 
-makeColorDancer.prototype.step = function() {
-  makeDancer.prototype.step.call(this);
+ColorDancer.prototype.step = function() {
+  Dancer.prototype.step.call(this);
+  this.getColor();
+  this.blink();
+};
+
+
+ColorDancer.prototype.getColor = function() {
   var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
   var pickColor = Math.floor(Math.random() * (colors.length - 1));
   var styleSettings = {
     'border-color': colors[pickColor]
   };
   this.$node.css(styleSettings);
-  this.blink();
 };

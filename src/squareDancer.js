@@ -1,21 +1,21 @@
-var makeSquareDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps);
+var SquareDancer = function(top, left, timeBetweenSteps) {
+  Dancer.call(this, top, left, timeBetweenSteps);
   this.setPosition();
   this.$node.addClass('squareDancer');
 
 };
 
-makeSquareDancer.prototype = Object.create(makeDancer.prototype);
-makeSquareDancer.prototype.constructor = makeSquareDancer;
+SquareDancer.prototype = Object.create(Dancer.prototype);
+SquareDancer.prototype.constructor = SquareDancer;
 
-makeSquareDancer.prototype.oldStep = makeDancer.prototype.step;
+SquareDancer.prototype.oldStep = Dancer.prototype.step;
 
-makeSquareDancer.prototype.step = function() {
+SquareDancer.prototype.step = function() {
   this.oldStep();
   this.resize();
 };
 
-makeSquareDancer.prototype.resize = function() {
+SquareDancer.prototype.resize = function() {
   this.size === 30 ? this.size = 0 : this.size = 30;
   this.$node.animate({'border-width': this.size + 'px'}, 200);
 };
