@@ -36,7 +36,6 @@ describe('colorDancer', function() {
     it('should call getColor at least once per second', function() {
       sinon.spy(colorDancer, 'getColor');
       expect(colorDancer.getColor.callCount).to.be.equal(0);
-      clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
       clock.tick(timeBetweenSteps);
 
       expect(colorDancer.getColor.callCount).to.be.equal(1);
